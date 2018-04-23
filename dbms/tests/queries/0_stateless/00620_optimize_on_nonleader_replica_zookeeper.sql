@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS test.clear_column1;
 DROP TABLE IF EXISTS test.clear_column2;
 DROP TABLE IF EXISTS test.clear_column3;
+
 CREATE TABLE test.clear_column1 (p Int64, i Int64, v UInt64) ENGINE = ReplicatedReplacingMergeTree('/clickhouse/test/tables/clear_column', '1', v) PARTITION BY p ORDER BY i;
 CREATE TABLE test.clear_column2 (p Int64, i Int64, v UInt64) ENGINE = ReplicatedReplacingMergeTree('/clickhouse/test/tables/clear_column', '2', v) PARTITION BY p ORDER BY i;
 
@@ -19,3 +20,4 @@ SELECT * FROM test.clear_column1;
 
 DROP TABLE IF EXISTS test.clear_column1;
 DROP TABLE IF EXISTS test.clear_column2;
+DROP TABLE IF EXISTS test.clear_column3;
